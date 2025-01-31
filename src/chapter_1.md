@@ -1,1 +1,6 @@
 # Chapter 1
+
+```python
+x = 2
+y = {1: 2}
+```
