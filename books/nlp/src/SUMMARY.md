@@ -1,4 +1,5 @@
 <!-- markdownlint-disable-file MD025 -->
+
 # Summary
 
 [Introduction](README.md)
@@ -13,6 +14,7 @@
     - [Encoders](llms/architecture/encoders.md)
     - [Decoders](llms/architecture/decoders.md)
     - [Encoder-Decoder](llms/architecture/encoder_decoder.md)
+    - [Multi-Latent Attention](llms/architecture/mla.md)
   - [Prompting](llms/prompting/README.md)
     - [Prompt Engineering](llms/prompting/prompt_engineering.md)
     - [In-Context Learning](llms/prompting/icl.md)
@@ -25,6 +27,7 @@
     - [Supervised Fine-Tuning](llms/fine_tuning/sft.md)
     - [RLHF](llms/fine_tuning/rlhf.md)
     - [DPO](llms/fine_tuning/dpo.md)
+    - [GRPO](llms/fine_tuning/grpo.md)
     - [PEFT](llms/fine_tuning/peft.md)
     - [LoRA](llms/fine_tuning/lora.md)
     - [QLoRA](llms/fine_tuning/qlora.md)
@@ -45,7 +48,13 @@
     - [Fast Attention](llms/efficient_inference/fast_attention.md)
     - [Distillation](llms/efficient_inference/distillation.md)
     - [Quantization](llms/efficient_inference/quantization.md)
+  - [Decoding](llms/decoding/README.md)
+    - [Multi-Token Prediction](llms/decoding/multi_token_prediction.md)
+    - [Top-k](llms/decoding/top_k.md)
+    - [Greedy](llms/decoding/greedy.md)
+    - [Speculative](llms/decoding/speculative.md)
   - [Miscellaneous](llms/misc/README.md)
+    - [Rejection Sampling](llms/misc/rejection_sampling.md)
     - [Emergent](llms/misc/emergent.md)
     - [LLM As Judge](llms/misc/llm_as_judge.md)
 - [Notable Models](models/README.md)
@@ -53,9 +62,11 @@
   - [Llama-3](models/llama_3.md)
   - [DeepSeek-R1](models/deepseek_r1.md)
   - [DeepSeek-v3](models/deepseek_v3.md)
+  - [Qwen2.5](models/qwen2pt5.md)
 
 # Evaluation
 
 - [Metrics](evaluation/README.md)
   - [Rouge](evaluation/rouge.md)
   - [Bleu](evaluation/bleu.md)
+  - [pass@k](evaluation/pass_k.md)
