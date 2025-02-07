@@ -1,6 +1,12 @@
+<!-- markdownlint-disable-file MD033 -->
+
 # DeepSeek-R1
 
-The DeepSeek-R1 model was introduced by DeepSeek in January of 2024. It is
+<p align="left"><small>
+(Reading time: {{ #reading_time }})
+</small></p>
+
+The DeepSeek-R1 model was introduced by DeepSeek in January of 2025. It is
 derived from an earlier checkpoint of [DeepSeek-V3](../models/deepseek_v3.md).
 In particular, starting with DeepSeek-V3-base, four stages of fine-tuning were
 performed in order to arrive at the checkpoint known as DeepSeek-R1: (i) **Reasoning
@@ -121,7 +127,7 @@ Below are three key results of DeepSeek-R1 and its development:
 >
 
 Table: Comparison between DeepSeek-R1 and other representative models.
-(Copied from Table 4 of Guo, Daya, et al (2024).)
+(Copied from Table 4 of Guo, Daya, et al (2025).)
 
 </div>
 
@@ -167,21 +173,9 @@ such as software-engineering tasks.
    _(appearing in fortune.com)_
 4. [_Open-R1: a fully open reproduction of DeepSeek-R1_](https://huggingface.co/blog/open-r1)
    _(by HuggingFace)_
+5. [_DeepSeek-R1 is available on HuggingFace_](https://huggingface.co/deepseek-ai/DeepSeek-R1)
 
 <!-- TODO: mdBook preprocessor with custom mustache handler {{ #author }} -->
 <!-- markdownlint-disable-file MD033 -->
 
----
-
-<div class="contributor-footnotes">
-<small>
-
-**Contributors:**
-
-<a href="https://github.com/nerdai">
-<img src="https://github.com/nerdai.png"
-  width="32px" alt="Contributor 1" style="border-radius: 50%">
-</a>
-</small>
-
-</div>
+{{#author nerdai}}
