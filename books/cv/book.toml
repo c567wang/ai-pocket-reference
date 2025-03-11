@@ -16,6 +16,13 @@ create-missing = true             # whether or not to create missing pages
 use-default-preprocessors = true  # use the default preprocessors
 extra-watch-dirs = []             # directories to watch for triggering builds
 
+# preprocessors
+[preprocessor.github-authors]
+command = "mdbook-github-authors"
+
+[preprocessor.ai-pocket-reference]
+command = "mdbook-ai-pocket-reference"
+after = [ "github-authors" ]
 
 [output.html]
 mathjax-support = true
