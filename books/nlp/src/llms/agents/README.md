@@ -64,7 +64,7 @@ The potential applications for agents are quite broad. Some examples include:
 While the above are theoretical applications, tangible agents have also begun
 making their way to the market. At the time of writing this reference,
 Deep Research (2025), a research assistant for synthesizing literature,
-and Manus, for more broad analysis and development,
+and Manus (2025), for more broad analysis and development,
 are two agents that have made headlines.
 
 ## Limitations
