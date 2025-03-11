@@ -22,20 +22,30 @@ jobs:
         with:
           toolchain: stable
 
-      - name: Install mdbook if needed
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Install mdbook if needed  # Pin of mdbook should match the version used to generate theme.bbs template
         run: |
-          (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.4" mdbook)
-          cargo install mdbook-ai-pocket-reference
-          cargo install mdbook-github-authors
+          (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "0.4.44" mdbook)
+          (test -x $HOME/.cargo/bin/mdbook-ai-pocket-reference ||cargo install mdbook-ai-pocket-reference)
+          (test -x $HOME/.cargo/bin/mdbook-github-authors || cargo install mdbook-github-authors)
 
       - name: Build books
         run: |
           mdbook build books/nlp
           mdbook build books/compute
+          mdbook build books/responsible_ai
           # mdbook build books/fundamentals
           # mdbook build books/cv
           # mdbook build books/rl
-          # mdbook build books/responsible_ai
           # mdbook build books/fl
 
       - name: Copy static assets to build folder
