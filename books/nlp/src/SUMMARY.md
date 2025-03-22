@@ -49,7 +49,7 @@
     - [Graph RAG]() <!-- (llms/rag/graph.md) -->
   - [Model Compression]() <!-- (llms/compression/README.md) -->
     - [Distillation]() <!-- (llms/compression/distillation.md) -->
-    - [Quantization]() <!-- (llms/compression/quantization.md) -->
+    - [Quantization](llms/compression/quantization.md)
   - [Efficient Inference]() <!-- (llms/efficient_inference/README.md) -->
     - [Fast Attention]() <!-- (llms/efficient_inference/fast_attention.md) -->
     - [KV Cache](llms/efficient_inference/kv_cache.md)
