@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>KV Cache - AI Pocket Reference: NLP</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A streamlined reference manual for AI practitioners, students, and developers to quickly look up core concepts and mock implementations">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../_common/mdbook-ai-pocket-reference.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AI Pocket Reference: NLP</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://vectorinstitute.github.io/ai-pocket-reference/" title="Home" aria-label="Home">
+                            <i id="home-button" class="fa fa-home"></i>
+                        </a>
+                        <a href="https://github.com/VectorInstitute/ai-pocket-reference" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- markdownlint-disable-file MD033 -->
+<h1 id="kv-cache"><a class="header" href="#kv-cache">KV Cache</a></h1>
+<!-- Header -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2em;">
+  <div>
+    <a target="_blank" href="https://github.com/VectorInstitute/ai-pocket-reference/issues/new?template=edit-request.yml">
+      <img src="https://img.shields.io/badge/Suggest_an_Edit-black?logo=github&style=flat" alt="Suggest an Edit"/>
+    </a>
+    <p style="margin: 0;"><small>Reading time: 5 min</small></p>
+  </div>
+</div>
+<!-- Main Body -->
+<p>With autoregressive models like decoder-only LLMs (i.e., GPTs), inference is performed
+by predicting one token at a time, using the past token generations as inputs for
+future ones. To predict future tokens, certain computed representations of these
+past tokens are required for every future token prediction. This makes it computationally
+inefficient to recalculate these representations at each token generation step."</p>
+<center>
+<img src="https://d3ddy8balm3goa.cloudfront.net/vector-ai-pocket-refs/nlp/kv-cache-final.excalidraw.svg" alt="kv-cache"> <!-- markdownlint-disable-line MD013 -->
+</center>
+<div
+  class="figure-caption"
+  style="text-align: center; font-size: 0.8em; margin-top: 10px;"
+>
+Figure: KV Cache for autoregressive inference
+</div>
+<p>To formalize this, let \(x_1,x_2, \ldots, x_{t-1}\) represent the input sequence
+of \(h\) dimensional embeddings i.e., \(x_i \in R^{1\times h}\). For simplicity,
+let's consider a single <a href="../architecture/attention.html">Attention</a> head and a single
+<a href="../architecture/transformer.html">Transformer</a> block. In order to get the logits
+for the next token, the LLM must compute the contextualized vector \(c_{t-1}\)
+given by:</p>
+<p>$$
+\begin{aligned}
+c_{t-1} &amp;= f_{attn}(x_1, x_2, \ldots, x_{t-1}; W_k, W_v, W_q),
+\end{aligned}
+$$</p>
+<p>where \(f_{attn}(\cdot)\) is the attention operator that produces a contextualized
+vector using all of the input embedding vectors, and \(W_k\), \(W_v\) and \(W_q\)
+are the \(h\times h\) projection matrices for keys, values, and queries, respectively.
+(Note that the Attention module computes the contextualized vectors of all input
+embeddings simultaneously, employing causal masking to ensure that each token
+only attends to itself and previous tokens in the sequence.)</p>
+<p>Recall that with the attention operator, we first need to compute the various keys
+and values representations of the input embeddings as well as the query
+representation of \(x_{t-1}\):</p>
+<p>$$
+K_{t-1} = \begin{bmatrix}
+x_1 W_k \\
+x_2 W_k \\
+\vdots \\
+x_{t-1} W_k
+\end{bmatrix},
+\quad
+V_{t-1} = \begin{bmatrix}
+x_1 W_v \\
+x_2 W_v \\
+\vdots \\
+x_{t-1} W_v
+\end{bmatrix},
+\quad
+\text{and}
+\quad
+q_{t-1} = x_{t-1}W_q.
+$$</p>
+<p>Using scaled-dot attention, we combine the keys with the query to derive an attention
+weights vector via:</p>
+<p>$$
+a_{t-1} = \text{Softmax}(q_{t-1} K_{t-1}^T / \sqrt{h}).
+$$</p>
+<p>Finally, the contextualized vector of the (\(t-1)\)-th token is the attention-weighted
+combination of the values vectors:</p>
+<p>$$
+c_{t-1} = a_{t-1} V_{t-1}.
+$$</p>
+<p>The LLM ultimately makes use of this contexualized vector to build the logits for
+the \(t\)-th token prediction. Let's suppose that \(x_t\) is generated from
+such logits.</p>
+<p>With \(x_t\) generated, we aim to predict the next token. To do so, we now
+need to build the contextualized vector, \(c_t\):</p>
+<p>$$
+\begin{aligned}
+c_t &amp;= f_{attn}(x_1, x_2, \ldots, x_{t-1}, x_t; W_k, W_v, W_q),
+\end{aligned}
+$$</p>
+<p>As before, we understand that in order to apply this operator, the following keys,
+values and query are required:</p>
+<p>$$
+K_{t} = \begin{bmatrix}
+x_1 W_k \\
+x_2 W_k \\
+\vdots \\
+x_{t-1} W_k \\
+x_t W_k
+\end{bmatrix},
+\quad
+V_{t} = \begin{bmatrix}
+x_1 W_v \\
+x_2 W_v \\
+\vdots \\
+x_{t-1} W_v \\
+x_t W_v
+\end{bmatrix},
+\quad
+\text{and}
+\quad
+q_t = x_{t}W_q.
+$$</p>
+<p>It immediately follows though that</p>
+<p>$$
+K_{t} = \begin{bmatrix}
+K_{t-1} \\
+x_t W_k
+\end{bmatrix}
+\quad
+\text{and}
+\quad
+V_{t} = \begin{bmatrix}
+V_{t-1} \\
+x_t W_v
+\end{bmatrix}.
+$$</p>
+<p>In other words, the keys and values required to build \(c_t\) consist of all the
+previous keys and values needed for \(c_{t-1}\) plus only the new key and value
+derived from the latest input embedding token \(x_t\).</p>
+<p>This insight presents an opportunity to significantly reduce computational overhead
+during generation by caching and reusing past keys and values rather than recomputing
+them.</p>
+<p>This is exactly the purpose of having a KV Cache. At each iteration of inference,
+we compute the newest key and value emanating from the latest input embedding
+token and add it to the respective caches, one for each keys and values.</p>
+<blockquote>
+<p><strong>Algorithm: KV Cache for Autoregressive Inference</strong></p>
+<p><em>Pre-fill Stage</em><br />
+Given input sequence \(x_1, x_2, \ldots, x_n\)<br />
+Initialize key cache \(K_n = [x_1W_k; x_2W_k; \ldots; x_nW_k]\)<br />
+Initialize value cache \(V_n = [x_1W_v; x_2W_v; \ldots; x_nW_v]\)</p>
+<p><em>Decode Stage</em><br />
+Loop for each token generation step t &gt; n:<br />
+\(\quad\)Compute new key and value: \(k_t = x_t W_k\), \(v_t = x_t W_v\)<br />
+\(\quad\)Update caches by appending new key and value:<br />
+\(\qquad\)\(K_t = [K_{t-1}; k_t]\)<br />
+\(\qquad\)\(V_t = [V_{t-1}; v_t]\)<br />
+\(\quad\)Compute attention using cached keys and values:<br />
+\(\qquad\)\(q_t = x_t W_q\)<br />
+\(\qquad\)\(c_t = \text{Softmax}(q_t K_t^T / \sqrt{h}) V_t\)<br />
+\(\quad\)Compute next token logits using \(c_t\)<br />
+\(\quad\)Generate \(x_{t+1}\) // (which becomes part of the next step's input)</p>
+</blockquote>
+<h2 id="limitations"><a class="header" href="#limitations">Limitations</a></h2>
+<p>Note that LLMs use Multi-Head Attention modules with several Transformer layers.
+Each attention head would need to maintain its own KV Cache and as such, the memory
+requirements can be quite expensive. As one example, Liu et al (2024) note that
+with 540B PaLM, using a batch size of 512 and context length of 2048, would required
+a KV Cache that can take upwards of 3TB of memory — more than the amount of memory
+required to hold the model's weight parameters.</p>
+<p>This memory bottleneck becomes especially pronounced when serving multiple requests
+simultaneously or working with very long context windows.</p>
+<h4 id="references--useful-links"><a class="header" href="#references--useful-links">References &amp; Useful Links <!-- markdownlint-disable-line MD001 --></a></h4>
+<ol>
+<li><a href="https://arxiv.org/pdf/2402.02750">Liu, Zirui, et al. "Kivi: A tuning-free asymmetric 2bit quantization for kv
+cache." arXiv preprint arXiv:2402.02750 (2024).</a></li>
+<li><a href="https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167"><em>Raschka, Sebastian. Build a Large Language Model (From Scratch). Simon and
+Schuster, 2024.</em></a></li>
+<li><a href="https://r4j4n.github.io/blogs/posts/kv/">Rajan, R. "KV Cache - Understanding the Mechanism behind it." R4J4N Blogs,
+r4j4n.github.io/blogs/posts/kv/. Accessed 27 Feb. 2025.</a></li>
+</ol>
+<!-- Contributions -->
+<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+<div class="contributor-footnotes">
+<small>
+<strong>Contributors:</strong>
+<div style="display: flex; gap: 8px; margin-top: 10px;">
+<a href="https://github.com/nerdai">
+<img src="https://github.com/nerdai.png"
+  width="32px" alt="Contributor nerdai" style="border-radius: 50%">
+</a>
+</div>
+</small>
+</div>
+<div class="vector-logo">
+    <a href="https://vectorinstitute.ai/">
+        <img src="https://d3ddy8balm3goa.cloudfront.net/vector-ai-pocket-refs/vector-logo-default.png" alt="" class="light-logo">
+    </a>
+    <a href="https://vectorinstitute.ai/">
+        <img src="https://d3ddy8balm3goa.cloudfront.net/vector-ai-pocket-refs/vector-logo-dark.png" alt="" class="dark-logo">
+    </a>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../llms/fine_tuning/lora.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../models/deepseek_r1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../llms/fine_tuning/lora.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../models/deepseek_r1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pocket References</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .logo {
+            display: block;
+            margin: 20px auto;
+            max-width: 250px;
+            height: auto;
+        }
+        .nav-links {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .nav-links a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .link, .disabled-link {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #000;
+            transition: background-color 0.2s;
+        }
+        .link {
+            background-color: white;
+        }
+        .link:hover {
+            background-color: #f5f5f5;
+        }
+        .disabled-link {
+            color: #999;
+            background-color: #f5f5f5;
+            cursor: not-allowed;
+        }
+        .section-heading {
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            color: #555;
+        }
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        .community-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        .community-links a {
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        .community-links a:hover {
+            opacity: 1;
+        }
+        .community-links img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 4px;
+        }
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .icon-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.svg" alt="AI Pocket Reference Logo" class="logo">
+
+
+    <div class="nav-links">
+        <a href="https://vectorinstitute.github.io/ai-pocket-reference/compute" class="link">High-Performance AI Computing</a>
+        <a href="https://vectorinstitute.github.io/ai-pocket-reference/nlp" class="link">Natural Language Processing</a>
+        <a href="https://vectorinstitute.github.io/ai-pocket-reference/responsible_ai" class="link">Responsible AI</a>
+    </div>
+
+    <div class="nav-links">
+        <h2 class="section-heading">Coming Soon</h2>
+        <!-- <a href="https://vectorinstitute.github.io/ai-pocket-reference/fundamentals" class="link">AI Fundamentals</a> -->
+        <div class="disabled-link">AI Fundamentals</div>
+
+        <!-- <a href="https://vectorinstituteo.github.io/ai-pocket-reference/cv" class="link">Computer Vision</a> -->
+        <div class="disabled-link">Computer Vision</div>
+
+        <!-- <a href="https://vectorinstitute.github.io/ai-pocket-reference/rl" class="link">Reinforcement Learning</a> -->
+        <div class="disabled-link">Reinforcement Learning</div>
+
+        <!-- <a href="https://vectorinstitute.github.io/ai-pocket-reference/fl" class="link">Federated Learning</a> -->
+        <div class="disabled-link">Federated Learning</div>
+    </div>
+
+
+    <footer>
+        <div class="community-links">
+            <a href="https://github.com/VectorInstitute/ai-pocket-reference" aria-label="GitHub Repository">
+                <div class="icon-container">
+                    <img src="github-mark.svg" alt="GitHub">
+                    <span class="icon-text">View on Github</span>
+                </div>
+            </a>
+            <a href="https://discord.gg/your-invite-code" aria-label="Discord Community">
+                <div class="icon-container">
+                    <img src="discord.svg" alt="Discord">
+                    <span class="icon-text">Join our community</span>
+                </div>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

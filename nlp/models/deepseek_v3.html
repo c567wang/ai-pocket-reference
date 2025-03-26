@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>DeepSeek-v3 - AI Pocket Reference: NLP</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A streamlined reference manual for AI practitioners, students, and developers to quickly look up core concepts and mock implementations">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../_common/mdbook-ai-pocket-reference.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AI Pocket Reference: NLP</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://vectorinstitute.github.io/ai-pocket-reference/" title="Home" aria-label="Home">
+                            <i id="home-button" class="fa fa-home"></i>
+                        </a>
+                        <a href="https://github.com/VectorInstitute/ai-pocket-reference" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- markdownlint-disable-file MD033 -->
+<h1 id="deepseek-v3"><a class="header" href="#deepseek-v3">DeepSeek-v3</a></h1>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2em;">
+  <div>
+    <a target="_blank" href="https://github.com/VectorInstitute/ai-pocket-reference/issues/new?template=edit-request.yml">
+      <img src="https://img.shields.io/badge/Suggest_an_Edit-black?logo=github&style=flat" alt="Suggest an Edit"/>
+    </a>
+    <p style="margin: 0;"><small>Reading time: 7 min</small></p>
+  </div>
+</div>
+<p>The DeepSeek-V3 model was introduced by DeepSeek in December of 2024. It is an
+LLM that leverages <a href="../llms/architecture/moe.html">MoE</a> in its design.</p>
+<center>
+<img src="https://d3ddy8balm3goa.cloudfront.net/vector-ai-pocket-refs/deepseek-v3-lineage-v2.excalidraw.svg" alt="DeepSeek-V3 Model Lineage"> <!-- markdownlint-disable-line MD013 -->
+</center>
+<div
+  class="figure-caption"
+  style="text-align: center; font-size: 0.8em; margin-top: 10px;"
+>
+Figure: Illustrating DeepSeek-V3 training evolution.
+</div>
+<p>The training pipeline for DeepSeek-V3 consists of the two typical stages: pre-training
+and post-training. As depicted in the Figure above, the pre-training stage involves
+pre-training on 14.8T tokens followed by long-context extension using the <a href="../llms/fine_tuning/yarn.html">YaRN</a>
+methodology. Post-training of DeepSeek-V3 utilizes <a href="../llms/fine_tuning/sft.html">SFT</a>
+as well as Reinforcement Learning methods.</p>
+<h2 id="historical-significance"><a class="header" href="#historical-significance">Historical Significance</a></h2>
+<p>At the time of its release, open-source models had already been lessening the gap
+in performance with closed-source counterparts. DeepSeek-V3 was yet another open-source
+model that achieved high levels of performance, beating other open-source alternatives
+as well as some closed-source models in various benchmarks. What made DeepSeek-V3's
+achievement even more intriguing was that it was reportedly trained using less
+compute than its closest counterparts.</p>
+<h2 id="architectural-highlights"><a class="header" href="#architectural-highlights">Architectural Highlights</a></h2>
+<p>DeepSeek-V3 is a transformer-based model that swaps out nearly all dense <a href="../llms/architecture/feedforward.html">feedforward</a>
+for <a href="../llms/architecture/moe.html">MoE</a>. The model has a total of 671B parameters
+but through its specialized variant of MoE (referred to as DeepSeekMoE), only
+37B parameters are activated in both training and inference. Through a series of
+long-context extension fine-tuning steps, the maximum context length for this model
+was extended to 128K tokens.</p>
+<p><strong>DeepSeekMoE:</strong> Used to carry out training more efficiently, this MoE design
+consists of two sets of experts, namely: shared and routed. The former set of routers
+is used for every token in the input sequence whereas the usage of routed ones are
+determined according to the affinity to the input token.</p>
+<p><strong>Auxiliary-loss Load Free Balancing:</strong> When using an MoE architecture, one must
+consider load balancing across the networks to prevent routing collapse. This has
+been typically addressed via the introduction of an auxiliary loss. However, if
+this loss has too great of an influence, it can lead to a model degradation. DeepSeek-V3
+instead considers a technique that requires no auxiliary loss but instead relies
+on a new bias term that dynamically changes its value according to the experts
+current workload.</p>
+<p><strong>Multi-Head Latent Attention (MLA):</strong> Used for making inference more efficient
+by jointly compressing attention keys and values to a lower dimension. The compression
+involves a linear projection matrix compressing keys and values down as well as
+another linear project matrix for compressing keys and values back up. Only the
+compressed joint representation of keys and values need to be cached during inference.
+For more details see <a href="../llms/architecture/mla.html">MLA</a>.</p>
+<p><strong>Multi-Token Prediction:</strong> In an effort to improve the training signal, DeepSeek-V3
+expands the prediction scope to additional future tokens at every token position
+of the sequence. In other words, instead of only predicting the next immediate token
+and training the model on this signal, $D$ future tokens are predicted. These tokens
+are predicted sequentially by $D$ sequential multi-token prediction modules in order
+to maintain the causal chain. For more details see <a href="../llms/decoding/multi_token_prediction.html">MTP</a>.</p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody>
+<tr><td>Total parameters</td><td>671B</td></tr>
+<tr><td>Activated parameters</td><td>37B</td></tr>
+<tr><td>Maximum context length</td><td>128K tokens</td></tr>
+<tr><td>Number of Transformer layers</td><td>61</td></tr>
+<tr><td>Hidden dimension size</td><td>7168</td></tr>
+<tr><td>Number of attention heads</td><td>128</td></tr>
+<tr><td>Number of experts (MoE)</td><td>1 (shared) &amp; 256 (routed)</td></tr>
+<tr><td>Hidden dimension of experts</td><td>2048</td></tr>
+<tr><td>KV compression dimension size (MLA)</td><td>512</td></tr>
+<tr><td>Multi-token depth (MTP)</td><td>1</td></tr>
+</tbody></table>
+</div><div
+  class="table-caption"
+  style="text-align: center; font-size: 0.8em; margin-top: 10px;"
+>
+Table 1: Summary of DeepSeek-V3 architecture and hyper parameters.
+</div>
+<h2 id="training-data"><a class="header" href="#training-data">Training Data</a></h2>
+<p>The pre-training corpus is a revised version of the one used to train an earlier
+version of the model, DeepSeek-V2. In this revision, more samples pertaining to
+mathematics and programming were included. Ultimately, the dataset comprised of
+14.8T tokens.</p>
+<h2 id="compute-details"><a class="header" href="#compute-details">Compute Details</a></h2>
+<p>DeepSeek-V3 was trained on a cluster with 2048 NVIDIA H800 GPUs. Each node within
+the cluster consists of 8 H800 GPUs inter-connected via NVLink and NVSwitch. In total,
+it was reported that only 2.664M H800 GPU hours were used for pre-training while
+subsequent training stages required only 0.1M GPU hours. One of the main reasons
+for this training efficiency was their application of an FP8 mixed precision
+training framework.</p>
+<h2 id="key-results"><a class="header" href="#key-results">Key Results</a></h2>
+<!-- markdownlint-disable MD013 -->
+<div class="table-wrapper"><table><thead><tr><th>Benchmark (Metric)</th><th># Shots</th><th>DeepSeek-V2 Base</th><th>Qwen2.5 72B Base</th><th>LLaMA-3.1 405B Base</th><th>DeepSeek-V3 Base</th></tr></thead><tbody>
+<tr><td>Pile-test (BPB)</td><td>-</td><td>0.606</td><td>0.638</td><td><strong>0.542</strong></td><td>0.548</td></tr>
+<tr><td>BBH (EM)</td><td>3-shot</td><td>78.8</td><td>79.8</td><td>82.9</td><td><strong>87.5</strong></td></tr>
+<tr><td>MMLU (EM)</td><td>5-shot</td><td>78.4</td><td>85.0</td><td>84.4</td><td><strong>87.1</strong></td></tr>
+<tr><td>MMLU-Redux (EM)</td><td>5-shot</td><td>75.6</td><td>83.2</td><td>81.3</td><td><strong>86.2</strong></td></tr>
+<tr><td>MMLU-Pro (EM)</td><td>5-shot</td><td>51.4</td><td>58.3</td><td>52.8</td><td><strong>64.4</strong></td></tr>
+<tr><td>DROP (F1)</td><td>3-shot</td><td>80.4</td><td>80.6</td><td>86.0</td><td><strong>89.0</strong></td></tr>
+<tr><td>ARC-Easy (EM)</td><td>25-shot</td><td>97.6</td><td>98.4</td><td>98.4</td><td><strong>98.9</strong></td></tr>
+<tr><td>ARC-Challenge (EM)</td><td>25-shot</td><td>92.2</td><td>94.5</td><td><strong>95.3</strong></td><td><strong>95.3</strong></td></tr>
+<tr><td>HellaSwag (EM)</td><td>10-shot</td><td>87.1</td><td>84.8</td><td><strong>89.2</strong></td><td>88.9</td></tr>
+<tr><td>PIQA (EM)</td><td>0-shot</td><td>83.9</td><td>82.1</td><td><strong>85.9</strong></td><td>84.7</td></tr>
+<tr><td>WinoGrande (EM)</td><td>5-shot</td><td><strong>86.3</strong></td><td>82.3</td><td>85.2</td><td>84.9</td></tr>
+<tr><td>RACE-Middle (EM)</td><td>3-shot</td><td>73.1</td><td>68.1</td><td><strong>74.2</strong></td><td>74.9</td></tr>
+<tr><td>RACE-High (EM)</td><td>5-shot</td><td>52.6</td><td>50.3</td><td><strong>56.8</strong></td><td>51.3</td></tr>
+<tr><td>TriviaQA (EM)</td><td>5-shot</td><td>80.0</td><td>71.9</td><td><strong>82.7</strong></td><td>82.9</td></tr>
+<tr><td>NaturalQuestions (EM)</td><td>5-shot</td><td>38.6</td><td>33.2</td><td><strong>41.5</strong></td><td>40.0</td></tr>
+<tr><td>AGIEval (EM)</td><td>0-shot</td><td>57.5</td><td>75.8</td><td>60.6</td><td><strong>79.6</strong></td></tr>
+<tr><td>HumanEval (Pass@1)</td><td>0-shot</td><td>43.3</td><td>53.0</td><td>54.9</td><td><strong>65.2</strong></td></tr>
+<tr><td>MBPP (Pass@1)</td><td>3-shot</td><td>65.0</td><td>72.6</td><td>68.4</td><td><strong>75.4</strong></td></tr>
+<tr><td>LiveCodeBench-Base (Pass@1)</td><td>3-shot</td><td>11.6</td><td>12.9</td><td>15.1</td><td><strong>19.4</strong></td></tr>
+<tr><td>CRUXEval-1 (EM)</td><td>2-shot</td><td>52.5</td><td>59.1</td><td>58.5</td><td><strong>67.3</strong></td></tr>
+<tr><td>CRUXEval-O (EM)</td><td>2-shot</td><td>49.8</td><td>59.9</td><td>59.9</td><td><strong>69.8</strong></td></tr>
+<tr><td>CSMRR (EM)</td><td>8-shot</td><td>81.6</td><td>88.3</td><td>89.3</td><td><strong>89.3</strong></td></tr>
+<tr><td>MATH (EM)</td><td>4-shot</td><td>43.4</td><td>54.4</td><td>49.0</td><td><strong>61.6</strong></td></tr>
+<tr><td>MGSM (EM)</td><td>8-shot</td><td>63.6</td><td>76.2</td><td>69.9</td><td><strong>79.8</strong></td></tr>
+<tr><td>CMath (EM)</td><td>3-shot</td><td>78.7</td><td>84.5</td><td>77.3</td><td><strong>90.7</strong></td></tr>
+<tr><td>CLUEWSC (EM)</td><td>5-shot</td><td>82.0</td><td>82.5</td><td><strong>83.0</strong></td><td>82.7</td></tr>
+<tr><td>C-Eval (EM)</td><td>0-shot</td><td>81.4</td><td>72.5</td><td>72.5</td><td><strong>90.1</strong></td></tr>
+<tr><td>CMMLU (EM)</td><td>5-shot</td><td>84.0</td><td><strong>89.5</strong></td><td>73.7</td><td>88.8</td></tr>
+<tr><td>CMRC (EM)</td><td>1-shot</td><td><strong>77.4</strong></td><td>75.8</td><td>76.0</td><td>76.3</td></tr>
+<tr><td>C3 (EM)</td><td>0-shot</td><td>77.4</td><td>76.7</td><td><strong>79.7</strong></td><td>78.6</td></tr>
+<tr><td>CCPM (EM)</td><td>0-shot</td><td><strong>93.0</strong></td><td>88.5</td><td>78.6</td><td>92.0</td></tr>
+<tr><td>MMLU-non-English (EM)</td><td>5-shot</td><td>64.0</td><td>74.8</td><td>73.8</td><td><strong>79.4</strong></td></tr>
+</tbody></table>
+</div><!-- markdownlint-enable MD013 -->
+<div
+  class="table-caption"
+  style="text-align: center; font-size: 0.8em; margin-top: 10px;"
+>
+Table 2: Comparison between DeepSeek-V3 and other representative models.
+(Copied from Table 3 of Liu, Aixin, et al (2024).)
+</div>
+<ol>
+<li>
+<p><strong>Superior Open-Source Model:</strong> DeepSeek-V3 outperformed all other open-source
+models on educational benchmarks (MMLU, MMLU-Pro, GPQA) achieving performance
+levels that rivals that for closed-source models such as GPT-4o and Claude-Sonnet-3.5.
+DeepSeek-V3 also achieved SOTA on math-related benchmarks (GSM8K, MATH, MGSM,
+CMath).</p>
+</li>
+<li>
+<p><strong>Efficient Training:</strong> DeepSeek-V3 was trained using only 2.664M H800 GPU hours,
+leveraging an FP8 mixed precision training framework. This marked, as reported
+by the authors, the first successful use of an FP8 scheme to train a large-scale
+model.</p>
+</li>
+<li>
+<p><strong>Reasoning Distillation:</strong> As part of the post-training step, DeepSeek-V3 creators
+were able to distill reasoning capabilities via long <a href="../llms/prompting/cot.html">CoT</a>
+passages generated by <a href="../models/deepseek_r1.html">DeepSeek-R1</a>. The authors noted
+that this pipeline improved reasononing performance while still maintaining the
+ability to produce desired outputs and efficient response lengths.</p>
+</li>
+</ol>
+<h2 id="limitations"><a class="header" href="#limitations">Limitations</a></h2>
+<p>DeepSeek-V3 requires significant amounts of computation facilities to ensure efficient
+inference.</p>
+<h4 id="references--useful-links"><a class="header" href="#references--useful-links">References &amp; Useful Links <!-- markdownlint-disable-line MD001 --></a></h4>
+<ol>
+<li><a href="https://arxiv.org/pdf/2412.19437"><em>Liu, Aixin, et al. "Deepseek-v3 technical report." arXiv preprint
+arXiv:2412.19437 (2024).</em></a></li>
+<li><a href="https://www.reuters.com/technology/chinas-deepseek-sets-off-ai-market-rout-2025-01-27/">DeepSeek sparks AI stock selloff; Nvidia posts record market-cap loss</a>
+(<em>appearing in reuters.com</em>)</li>
+</ol>
+<!-- markdownlint-disable-file MD033 -->
+<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+<div class="contributor-footnotes">
+<small>
+<strong>Contributors:</strong>
+<div style="display: flex; gap: 8px; margin-top: 10px;">
+<a href="https://github.com/nerdai">
+<img src="https://github.com/nerdai.png"
+  width="32px" alt="Contributor nerdai" style="border-radius: 50%">
+</a>
+</div>
+</small>
+</div>
+<div class="vector-logo">
+    <a href="https://vectorinstitute.ai/">
+        <img src="https://d3ddy8balm3goa.cloudfront.net/vector-ai-pocket-refs/vector-logo-default.png" alt="" class="light-logo">
+    </a>
+    <a href="https://vectorinstitute.ai/">
+        <img src="https://d3ddy8balm3goa.cloudfront.net/vector-ai-pocket-refs/vector-logo-dark.png" alt="" class="dark-logo">
+    </a>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../models/deepseek_r1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../models/deepseek_r1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

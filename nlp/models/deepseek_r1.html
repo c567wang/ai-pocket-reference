@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>DeepSeek-R1 - AI Pocket Reference: NLP</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A streamlined reference manual for AI practitioners, students, and developers to quickly look up core concepts and mock implementations">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../_common/mdbook-ai-pocket-reference.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AI Pocket Reference: NLP</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://vectorinstitute.github.io/ai-pocket-reference/" title="Home" aria-label="Home">
+                            <i id="home-button" class="fa fa-home"></i>
+                        </a>
+                        <a href="https://github.com/VectorInstitute/ai-pocket-reference" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- markdownlint-disable-file MD033 -->
+<h1 id="deepseek-r1"><a class="header" href="#deepseek-r1">DeepSeek-R1</a></h1>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2em;">
+  <div>
+    <a target="_blank" href="https://github.com/VectorInstitute/ai-pocket-reference/issues/new?template=edit-request.yml">
+      <img src="https://img.shields.io/badge/Suggest_an_Edit-black?logo=github&style=flat" alt="Suggest an Edit"/>
+    </a>
+    <p style="margin: 0;"><small>Reading time: 7 min</small></p>
+  </div>
+</div>
+<p>The DeepSeek-R1 model was introduced by DeepSeek in January of 2025. It is
+derived from an earlier checkpoint of <a href="../models/deepseek_v3.html">DeepSeek-V3</a>.
+In particular, starting with DeepSeek-V3-base, four stages of fine-tuning were
+performed in order to arrive at the checkpoint known as DeepSeek-R1: (i) <strong>Reasoning
+Cold-Start</strong> (using <a href="../llms/fine_tuning/sft.html">SFT</a>), (ii) <strong>RL for Reasoning</strong>
+(using <a href="../llms/fine_tuning/grpo.html">GRPO</a>), (iii) <strong>SFT for Enhanced Reasoning
+&amp; General Capabilities</strong> (using RL-generated reasoning data sampled with
+<a href="../llms/misc/rejection_sampling.html">Rejection Sampling</a>), and (iv) <strong>RL for Alignment</strong>
+(to human preferences).</p>
+<p><img src="https://d3ddy8balm3goa.cloudfront.net/vector-ai-pocket-refs/deepseek-v3-r1-lineage.excalidraw.svg" alt="Lineage" /></p>
+<div
+  class="figure-caption"
+  style="text-align: center; font-size: 0.8em; margin-top: 10px;"
+>
+<p>Figure: Illustrating DeepSeek-R1 model evolution.</p>
+</div>
+<p>As illustrated in the Figure above, the model lineage of DeepSeek-R1 implements
+a full-scale RL for reasoning stage that leverages cold-start data. In contrast,
+DeepSeek-R1-Zero does not use any cold-start SFT data whatsoever and uses purely
+RL steps to acquire its reasoning capabilities. The reward signal used for
+guiding the RL process of DeepSeek-R1-Zero is rules based computed from the
+response's correctness as well as its adherence to the desired format. While
+DeepSeek-R1-Zero demonstrated remarkable reasoning capabilities, it suffered greatly
+from poor readability and language mixing.</p>
+<p>This motivated the usage of cold-start data in the RL for Reasoning stage of
+DeepSeek-R1's training. Additionally, a reward signal to reduce language mixing
+as well as a model-based reward (using DeepSeek-V3 for judgement) was also
+incorporated.</p>
+<h2 id="historical-significance"><a class="header" href="#historical-significance">Historical Significance</a></h2>
+<p>At the time of its release, LLM reasoning models such as the OpenAI's o-series
+models had demonstrated remarkable performance on complex tasks, including those
+requiring multiple steps (e.g., <a href="https://arcprize.org/blog/oai-o3-pub-breakthrough">OpenAI o3's breakthrough score on ARC-AGI</a>).
+However, OpenAI—operating under a closed-source model—provided little details to
+how these models were developed, merely mentioning that Reinforcement Learning techniques
+were used to train the LLMs to produce long (internal) chain-of-thought style
+reasoning prior to providing a final answer.</p>
+<p>In contrast, DeepSeek open-sourced DeepSeek-R1 and provided a very detailed
+technical report, shedding much light on its training pipeline, which included an
+RL approach for the model to acquire its reasoning capabilities. It was also
+reported that DeepSeek-R1 was trained on NVIDIA H800's, a less capable GPU than
+the NVIDIA H100 or A100.</p>
+<blockquote>
+<p>DeepSeek-V3 is trained on a cluster equipped with 2048 NVIDIA H800 GPUs.</p>
+<p><em>(quoted from the DeepSeek-V3 Technical Report)</em></p>
+</blockquote>
+<p>The fact that DeepSeek-R1's performance rivaled that of it's closed-source
+counterpart in OpenAI o3 on multiple benchmarks (using reportedly less compute)
+led to a frenzy in the LLM and broader AI community. As an example, many teams
+(including at least one from HuggingFace) worked tirelessly to produce their own
+versions of DeepSeek-R1 in the days after its release.</p>
+<h2 id="architectural-highlights"><a class="header" href="#architectural-highlights">Architectural Highlights</a></h2>
+<p>See <a href="../models/deepseek_v3.html">DeepSeek-V3</a>.</p>
+<h2 id="training-data"><a class="header" href="#training-data">Training Data</a></h2>
+<p>The training data used for the four stages are described below:</p>
+<p><strong>Reasoning Cold Start</strong>: 1000s of samples of long CoT passages from multiple domains,
+verified by human annotators was used.</p>
+<p><strong>RL for Reasoning</strong>: self-exploration, using increased test-time for RL discovery
+until convergence (referred to as the RL checkpoint).</p>
+<p><strong>SFT for Enhanced Reasoning &amp; General Capabilities</strong>: the RL checkpoint was then
+used to generate 600K reasoning related samples (using rejection sampling).
+DeepSeek-V3 was used to create 200K non-reasoning data omitting the CoT portion
+for simple queries.</p>
+<p><strong>RL for Alignment</strong>: a combination of reward signals diverse data distributions
+including preference pairs and analyses of generated summaries &amp; responses.</p>
+<h2 id="key-results"><a class="header" href="#key-results">Key Results</a></h2>
+<p>Below are three key results of DeepSeek-R1 and its development:</p>
+<!-- markdownlint-disable MD013 -->
+<div class="table-wrapper"><table><thead><tr><th>Benchmark (Metric)</th><th>Claude-3.5-Sonnet-1022</th><th>GPT-4 0513</th><th>DeepSeek-V3</th><th>OpenAI o1-mini</th><th>OpenAI o1-1217</th><th>DeepSeek-R1</th></tr></thead><tbody>
+<tr><td>MMLU (Pass@1)</td><td>88.3</td><td>87.2</td><td>88.5</td><td>85.2</td><td><strong>91.8</strong></td><td>90.8</td></tr>
+<tr><td>MMLU-Redux (EM)</td><td>88.9</td><td>88.0</td><td>89.1</td><td>86.7</td><td>-</td><td><strong>92.9</strong></td></tr>
+<tr><td>MMLU-Pro (EM)</td><td>78.0</td><td>72.6</td><td>75.9</td><td>80.3</td><td>-</td><td><strong>84.0</strong></td></tr>
+<tr><td>DROP (3-shot F1)</td><td>88.3</td><td>83.7</td><td>91.6</td><td>83.9</td><td>90.2</td><td><strong>92.2</strong></td></tr>
+<tr><td>IF-Eval (Prompt Strict)</td><td><strong>86.5</strong></td><td>84.3</td><td>86.1</td><td>84.8</td><td>-</td><td>83.3</td></tr>
+<tr><td>GFQA Diamond (Pass@1)</td><td>65.0</td><td>49.9</td><td>59.1</td><td>60.0</td><td><strong>75.7</strong></td><td>71.5</td></tr>
+<tr><td>SimpleQA (Correct)</td><td>28.4</td><td>38.2</td><td>24.9</td><td>7.0</td><td><strong>47.0</strong></td><td>30.1</td></tr>
+<tr><td>FRAMES (Acc.)</td><td>72.5</td><td>80.5</td><td>73.3</td><td>76.9</td><td>-</td><td><strong>82.5</strong></td></tr>
+<tr><td>AlpacaEval2.0 (LC-winrate)</td><td>52.0</td><td>51.1</td><td>70.0</td><td>57.8</td><td>-</td><td><strong>87.6</strong></td></tr>
+<tr><td>ArenaHard (GPT-4-1106)</td><td>85.2</td><td>80.4</td><td>85.5</td><td>92.0</td><td>-</td><td><strong>92.3</strong></td></tr>
+<tr><td>LiveCodeBench (Pass@1-COT)</td><td>38.9</td><td>32.9</td><td>36.2</td><td>53.8</td><td>63.4</td><td><strong>65.9</strong></td></tr>
+<tr><td>Codeforces (Percentile)</td><td>20.3</td><td>23.6</td><td>58.7</td><td>93.4</td><td><strong>96.6</strong></td><td>96.3</td></tr>
+<tr><td>Codeforces (Rating)</td><td>717</td><td>759</td><td>1134</td><td>1820</td><td><strong>2061</strong></td><td>2029</td></tr>
+<tr><td>SWE Verified (Resolved)</td><td><strong>50.8</strong></td><td>38.8</td><td>42.0</td><td>41.6</td><td>48.9</td><td>49.2</td></tr>
+<tr><td>Aider-Polyglot (Acc.)</td><td>45.3</td><td>16.0</td><td>49.6</td><td>32.9</td><td><strong>61.7</strong></td><td>53.3</td></tr>
+<tr><td>AIME 2024 (Pass@1)</td><td>16.0</td><td>9.3</td><td>39.2</td><td>63.6</td><td>79.2</td><td><strong>79.8</strong></td></tr>
+<tr><td>MATH-500 (Pass@1)</td><td>78.3</td><td>74.6</td><td>90.2</td><td>90.0</td><td>96.4</td><td><strong>97.3</strong></td></tr>
+<tr><td>CNMO 2024 (Pass@1)</td><td>13.1</td><td>10.8</td><td>43.2</td><td>67.6</td><td>-</td><td><strong>78.8</strong></td></tr>
+<tr><td>CLUEWSC (EM)</td><td>85.4</td><td>87.9</td><td>90.9</td><td>89.9</td><td>-</td><td><strong>92.8</strong></td></tr>
+<tr><td>C-Eval (EM)</td><td>76.7</td><td>76.0</td><td>86.5</td><td>68.9</td><td>-</td><td><strong>91.8</strong></td></tr>
+<tr><td>C-SimpleQA (Correct)</td><td>55.4</td><td>58.7</td><td><strong>68.0</strong></td><td>40.3</td><td>-</td><td>63.7</td></tr>
+</tbody></table>
+</div><!-- markdownlint-enable MD013 -->
+<div
+  class="table-caption"
+  style="text-align: center; font-size: 0.8em; margin-top: 10px;"
+>
+<p>Table: Comparison between DeepSeek-R1 and other representative models.
+(Copied from Table 4 of Guo, Daya, et al (2025).)</p>
+</div>
+<ol>
+<li>
+<p><strong>Performance on Benchmarks:</strong> The table above which was copied from the DeepSeek-R1
+paper compares the performance of DeepSeek-R1 and -V3 with representative models
+from Anthropic and OpenAI. The values reported clearly demonstrate the impressive
+performance of DeepSeek-R1 across various benchmarks and tasks. Most notably,
+DeepSeek-R1 was able to surpass OpenAI's reasoning model o1-1217 on several benchmarks.</p>
+</li>
+<li>
+<p><strong>Distilling Reasoning Capabilities:</strong> The 800K samples that included generated
+examples by both DeepSeek-R1 (reasoning) and DeepSeek-V3 (non-reasoning) were
+used to distill other open-source models like <a href="../models/qwen2pt5.html">Qwen</a>
+and <a href="../models/llama_3.html">Llama</a>. With only the application SFT (i.e., no RL),
+some of these distilled models were not only able to outperform OpenAI's non-reasoning
+model GPT-4o-0513 across all benchmarks tested, but also OpenAI's o1-mini model
+on most benchmarks.</p>
+</li>
+<li>
+<p><strong>RL's Potential:</strong> Pure RL empowered DeepSeek-R1-Zero to autonomously acquire
+robust reasoning capabilities without any SFT data. What's more is that as test-time
+computation was increased, desirable behaviours such as reflection and re-evaluation
+on past trajectories emerged making it possible for the model to have "aha moments"
+when solving complex tasks. This development should serve as a reminder of the
+great potential of RL and its overall place in AI as endeavour to reach new
+heights.</p>
+</li>
+</ol>
+<h2 id="limitations"><a class="header" href="#limitations">Limitations</a></h2>
+<p>DeepSeek reported various limitations for DeepSeek-R1. Most notably, DeepSeek-R1
+is inferior to DeepSeek-V3 in general capabilities such as function calling, producing
+structured outputs (JSON), role-playing, and multi-turn conversations. Additionally,
+due to its optimization for English and Chinese, the model sometimes suffers from
+language mixing. Lastly, DeepSeek-R1 reportedly demonstrated a high sensitivity
+to prompts and long inference times, making it unsuitable for low-latency applications
+such as software-engineering tasks.</p>
+<h4 id="references--useful-links"><a class="header" href="#references--useful-links">References &amp; Useful Links <!-- markdownlint-disable-line MD001 --></a></h4>
+<ol>
+<li><a href="https://arxiv.org/pdf/2501.12948"><em>Guo, Daya, et al. "Deepseek-r1: Incentivizing reasoning capability in llms
+via reinforcement learning." arXiv preprint arXiv:2501.12948 (2025).</em></a></li>
+<li><a href="https://arxiv.org/pdf/2412.19437"><em>Liu, Aixin, et al. "Deepseek-v3 technical report." arXiv preprint
+arXiv:2412.19437 (2024).</em></a></li>
+<li><a href="https://fortune.com/2025/01/27/china-deepseek-nvidia-gpu-investor-panic-us-export-controls-rethink/"><em>China's DeepSeek sets off Nvidia investor panic over US export controls</em></a>
+<em>(appearing in fortune.com)</em></li>
+<li><a href="https://huggingface.co/blog/open-r1"><em>Open-R1: a fully open reproduction of DeepSeek-R1</em></a>
+<em>(by HuggingFace)</em></li>
+<li><a href="https://huggingface.co/deepseek-ai/DeepSeek-R1"><em>DeepSeek-R1 is available on HuggingFace</em></a></li>
+</ol>
+<!-- markdownlint-disable-file MD033 -->
+<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+<div class="contributor-footnotes">
+<small>
+<strong>Contributors:</strong>
+<div style="display: flex; gap: 8px; margin-top: 10px;">
+<a href="https://github.com/nerdai">
+<img src="https://github.com/nerdai.png"
+  width="32px" alt="Contributor nerdai" style="border-radius: 50%">
+</a>
+</div>
+</small>
+</div>
+<div class="vector-logo">
+    <a href="https://vectorinstitute.ai/">
+        <img src="https://d3ddy8balm3goa.cloudfront.net/vector-ai-pocket-refs/vector-logo-default.png" alt="" class="light-logo">
+    </a>
+    <a href="https://vectorinstitute.ai/">
+        <img src="https://d3ddy8balm3goa.cloudfront.net/vector-ai-pocket-refs/vector-logo-dark.png" alt="" class="dark-logo">
+    </a>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../llms/efficient_inference/kv_cache.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../models/deepseek_v3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../llms/efficient_inference/kv_cache.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../models/deepseek_v3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
