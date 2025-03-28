@@ -38,18 +38,18 @@
     - [QLoRA]() <!-- (llms/fine_tuning/qlora.md) -->
     - [DoRA]() <!-- (llms/fine_tuning/dora.md) -->
     - [YaRN]() <!-- (llms/fine_tuning/yarn.md) -->
-  - [Agents]() <!-- (llms/agents/README.md) -->
+  - [Agents](llms/agents/README.md)
     - [Tool Use]() <!-- (llms/agents/tool_use.md) -->
     - [Reflection]() <!-- (llms/agents/reflection.md) -->
     - [Multi Agent]() <!-- (llms/agents/multi_agents.md) -->
     - [Planning]() <!-- (llms/agents/planning.md) -->
-  - [RAG]() <!-- (llms/rag/README.md) -->
+  - [RAG](llms/rag/README.md)
     - [Chunks]() <!-- (llms/rag/chunks.md) -->
     - [Sliding Window]() <!-- (llms/rag/sliding_window.md) -->
     - [Graph RAG]() <!-- (llms/rag/graph.md) -->
   - [Model Compression]() <!-- (llms/compression/README.md) -->
     - [Distillation]() <!-- (llms/compression/distillation.md) -->
-    - [Quantization]() <!-- (llms/compression/quantization.md) -->
+    - [Quantization](llms/compression/quantization.md)
   - [Efficient Inference]() <!-- (llms/efficient_inference/README.md) -->
     - [Fast Attention]() <!-- (llms/efficient_inference/fast_attention.md) -->
     - [KV Cache](llms/efficient_inference/kv_cache.md)
@@ -62,7 +62,7 @@
     - [Rejection Sampling]() <!-- (llms/misc/rejection_sampling.md) -->
     - [Emergent]() <!-- (llms/misc/emergent.md) -->
     - [LLM As Judge]() <!-- (llms/misc/llm_as_judge.md) -->
-- [Notable Models]() <!-- (models/README.md) -->
+- [Notable Models](models/README.md)
   - [BERT]() <!-- (models/bert.md) -->
   - [Llama-3]() <!-- (models/llama_3.md) -->
   - [DeepSeek-R1](models/deepseek_r1.md) -->
